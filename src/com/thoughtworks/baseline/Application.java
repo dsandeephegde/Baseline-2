@@ -8,6 +8,11 @@ public class Application {
     }
 
     private void start() {
-
+        View view = new View();
+        while (view.input().equals("")) {
+            String input = view.input();
+            Parser parser = new Parser(input);
+            Item item = parser.parse();
+        }
     }
 }
