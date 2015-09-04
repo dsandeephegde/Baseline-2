@@ -45,4 +45,11 @@ public class ItemTest {
 
         assertEquals(item1.hashCode(), item2.hashCode());
     }
+
+    @Test
+    public void shouldReturnSalesTax10PercentForAllGoods() {
+        Item item = new Item(1, "book at", 20.0, false);
+
+        assertEquals(2.0, item.salesTax(), 0.0);
+    }
 }

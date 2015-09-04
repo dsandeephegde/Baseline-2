@@ -29,4 +29,8 @@ public class Item {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
+
+    public double salesTax() {
+        return 2.0;
+    }
 }
