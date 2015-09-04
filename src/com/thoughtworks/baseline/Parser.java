@@ -9,6 +9,6 @@ public class Parser {
     }
 
     public Item parse() {
-        return new Item();
+        return new Item(1);
     }
 }
