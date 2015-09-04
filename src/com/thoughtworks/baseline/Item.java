@@ -4,10 +4,14 @@ public class Item {
 
     private int numberOfGoods;
     private String description;
+    private double price;
+    private boolean isImported;
 
-    public Item(int numberOfGoods, String description) {
+    public Item(int numberOfGoods, String description, double price, boolean isImported) {
         this.numberOfGoods = numberOfGoods;
         this.description = description;
+        this.price = price;
+        this.isImported = isImported;
     }
 
     @Override

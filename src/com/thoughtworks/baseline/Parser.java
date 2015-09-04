@@ -11,11 +11,13 @@ public class Parser {
     public Item parse() {
         String[] tokens = input.split(" ");
         String description = "";
+        double price = 0;
+        boolean imported = false;
         int numberOfGoods = 1;
         try {
             numberOfGoods = Integer.parseInt(tokens[0]);
         } catch (Exception e) {
-            return new Item(1, "invalid");
+            return new Item(1, "invalid", 0.0, false);
         }
         try {
             for (int i = 1; i < tokens.length - 1; i++) {
@@ -25,8 +27,21 @@ public class Parser {
                     description += " " + tokens[i];
             }
         } catch (Exception e) {
-            return new Item(1, "invalid");
+            return new Item(1, "invalid", 0.0, false);
         }
-        return new Item(numberOfGoods, description);
+        try {
+            price = Double.parseDouble(tokens[tokens.length - 1]);
+        } catch (Exception e) {
+            return new Item(1, "invalid", 0.0, false);
+        }
+        try {
+            for (int i = 1; i < tokens.length -1; i++) {
+                if(tokens[i] == "imported")
+                    imported = true;
+            }
+        } catch (Exception e) {
+            return new Item(1, "invalid", 0.0, false);
+        }
+        return new Item(numberOfGoods, description, price, false);
     }
 }
